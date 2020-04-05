@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Custom hot spots</title>
+  <link rel="stylesheet" href="https://cdn.pannellum.org/2.3/pannellum.css" />
+  <script type="text/javascript" src="https://cdn.pannellum.org/2.3/pannellum.js"></script>
+
+  <style>
+    #panorama {
+      width: 600px;
+      height: 400px;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      width: 100%;
+      min-height: 100%;
+      position: relative;
+    }
+
+    .custom-hotspot {
+      height: 50px;
+      width: 50px;
+      border: 3px solid #f00;
+    }
+
+    div.custom-tooltip span {
+      visibility: hidden;
+      position: absolute;
+      border-radius: 3px;
+      background-color: #fff;
+      color: #000;
+      text-align: center;
+      max-width: 200px;
+      padding: 5px 10px;
+      margin-left: -220px;
+      cursor: default;
+    }
+
+    div.custom-tooltip:hover span {
+      visibility: visible;
+    }
+
+    div.custom-tooltip:hover span:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-width: 10px;
+      border-style: solid;
+      border-color: #fff transparent transparent transparent;
+      bottom: -20px;
+      left: -10px;
+      margin: 0 50%;
+    }
+
+    #sidepanelClose {
+      padding: 15px;
+      background-color: lavender;
+      display: inline-block;
+    }
+
+    #sidepanel {
+      border: 2px solid #000;
+      background-color: #FFF;
+      width: 0%;
+      height: 100%;
+      overflow-y: scroll;
+      position: absolute;
+      right: 0;
+      z-index: 1000;
+      transition: width 0.25s linear;
+    }
+
+    #sidepanel.show-sidepanel {
+      transition: width 0.25s linear;
+      width: 40%;
+    }
+
+    .hideContent {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="sidepanel">
+    <div id="sidepanelClose">close</div>
+    <div id="hotspotAContent" class="hideContent">
+      <h1>Oh my gosh! I love puppies</h1>
+    </div>
+    <div id="hotspotBContent" class="hideContent">
+      <h1>Look! It's so sunny outside</h1>
+    </div>
+    <div id="hotspotCContent" class="hideContent">
+      <h1>Let's go dancing in the rain</h1>
+    </div>
+
+  </div>
+  <div id="panorama"></div>
+
+  <script>
+    // Create viewer
+    viewer = pannellum.viewer('panorama', {
+      "type": "equirectangular",
+      "panorama": "pano.jpg",
+      "hotSpots": [
+        {
+          "pitch": 14.1,
+          "yaw": 1.5,
+          "cssClass": "custom-hotspot custom-hotspot-A",
+          "createTooltipFunc": hotspot,
+          "createTooltipArgs": "CSS mindfulness HotSpot A"
+        },
+        {
+          "pitch": -9.4,
+          "yaw": 222.6,
+          "cssClass": "custom-hotspot custom-hotspot-B",
+          "createTooltipFunc": hotspot,
+          "createTooltipArgs": "CSS Mindfulness HotSpot B"
+        },
+        {
+          "pitch": -0.9,
+          "yaw": 144.4,
+          "cssClass": "custom-hotspot custom-hotspot-C",
+          "createTooltipFunc": hotspot,
+          "createTooltipArgs": "CSS Mindfulness HotSpot C"
+        }
+      ]
+    });
+
+    // Hot spot creation function
+    function hotspot(hotSpotDiv, args) {
+      hotSpotDiv.classList.add('custom-tooltip');
+      var span = document.createElement('span');
+      span.innerHTML = args;
+      hotSpotDiv.appendChild(span);
+      span.style.width = span.scrollWidth - 20 + 'px';
+      span.style.marginLeft = -(span.scrollWidth - hotSpotDiv.offsetWidth) / 2 + 'px';
+      span.style.marginTop = -span.scrollHeight - 12 + 'px';
+      var sidepanel = document.getElementById('sidepanel');
+      var sidepanelClose = document.getElementById('sidepanelClose');
+      var HotSpotA = document.getElementsByClassName('custom-hotspot-A')[0];
+      var HotSpotB = document.getElementsByClassName('custom-hotspot-B')[0];
+      var HotSpotC = document.getElementsByClassName('custom-hotspot-C')[0];
+      var hotspotAContent = document.getElementById('hotspotAContent');
+      var hotspotBContent = document.getElementById('hotspotBContent');
+      var hotspotCContent = document.getElementById('hotspotCContent');
+
+      hotSpotDiv.addEventListener('click', function (event) {
+        sidepanel.classList.add('show-sidepanel');
+      }, false)
+
+      sidepanelClose.addEventListener('click', function (event) {
+        sidepanel.classList.remove('show-sidepanel');
+      }, false)
+
+      if (HotSpotA) {
+        HotSpotA.addEventListener('click', function (event) {
+          sidepanel.classList.remove('show-sidepanel');
+          hotspotAContent.classList.remove('hideContent');
+          hotspotBContent.classList.add('hideContent');
+          hotspotCContent.classList.add('hideContent');
+          setTimeout(function () { sidepanel.classList.add('show-sidepanel'); }, 500);
+        }, false)
+      }
+
+      if (HotSpotB) {
+        HotSpotB.addEventListener('click', function (event) {
+          sidepanel.classList.remove('show-sidepanel');
+          hotspotAContent.classList.add('hideContent');
+          hotspotBContent.classList.remove('hideContent');
+          hotspotCContent.classList.add('hideContent');
+          setTimeout(function () { sidepanel.classList.add('show-sidepanel'); }, 500);
+        }, false)
+      }
+
+      if (HotSpotC) {
+        HotSpotC.addEventListener('click', function (event) {
+          sidepanel.classList.remove('show-sidepanel');
+          hotspotAContent.classList.add('hideContent');
+          hotspotBContent.classList.add('hideContent');
+          hotspotCContent.classList.remove('hideContent');
+          setTimeout(function () { sidepanel.classList.add('show-sidepanel'); }, 500);
+        }, false)
+      }
+
+
+    }
+  </script>
+
+</body>
+
+</html>
