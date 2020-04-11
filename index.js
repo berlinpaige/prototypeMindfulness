@@ -6,42 +6,49 @@ viewer = pannellum.viewer('panorama', {
     {
       "pitch": 2.5,
       "yaw": 13,
+      "hotSpotId": "123",
       "cssClass": "custom-hotspot custom-hotspot-A panel-hotspot",
+      "clickHandlerFunc": function () { handleOpenPanel("hotspotAContent") },
       "createTooltipFunc": hotspot,
       "createTooltipArgs": "CSS bulletin"
     },
     {
       "pitch": 5,
       "yaw": 237,
+      "hotSpotId": '12345',
       "cssClass": "custom-hotspot custom-hotspot-B panel-hotspot",
+      "clickHandlerFunc": function () { handleOpenPanel("hotspotBContent") },
       "createTooltipFunc": hotspot,
       "createTooltipArgs": "Historial image"
     },
     {
       "pitch": -26,
       "yaw": 40,
+      "hotSpotId": '1234567',
       "cssClass": "custom-hotspot custom-hotspot-C panel-hotspot",
+      "clickHandlerFunc": function () { handleOpenPanel("hotspotCContent") },
       "createTooltipFunc": hotspot,
       "createTooltipArgs": "CSS Newspaper"
     }
   ]
 });
 
-function clickHandlerCreate(hotspot, hotspotContentDiv, hotspotsToHide) {
+function handleOpenPanel(hotspotContentId) {
   var sidepanel = document.getElementById('sidepanel');
-  if (hotspot) {
-    hotspot.addEventListener('click', function (event) {
-      sidepanel.classList.remove('show-sidepanel');
-      hotspotsToHide.forEach(function (element) {
-        element.classList.add('hideContent');
-      });
-      hotspotContentDiv.classList.remove('hideContent');
-      setTimeout(function () { sidepanel.classList.add('show-sidepanel'); }, 500);
-    }, false)
-  }
+  var hotspotContentDiv = document.getElementById(hotspotContentId);
+  var hotspotsToHide = document.getElementsByClassName('show-content');
+
+  sidepanel.classList.remove('show-sidepanel');
+  Array.prototype.forEach.call(hotspotsToHide, function (hotspot) {
+    hotspot.classList.remove('show-content')
+  });
+  setTimeout(function () {
+    sidepanel.classList.add('show-sidepanel');
+    hotspotContentDiv.classList.add('show-content');
+  }, 500);
 }
 
-function addSidepanelActions(hotSpotDiv) {
+function addSidepanelActions() {
   var sidepanel = document.getElementById('sidepanel');
   var sidepanelClose = document.getElementById('sidepanelClose');
 
@@ -50,21 +57,8 @@ function addSidepanelActions(hotSpotDiv) {
   }, false)
 }
 
-function addHotspotClickHandlers(params) {
-  var HotSpotA = document.getElementsByClassName('custom-hotspot-A')[0];
-  var HotSpotB = document.getElementsByClassName('custom-hotspot-B')[0];
-  var HotSpotC = document.getElementsByClassName('custom-hotspot-C')[0];
-  var hotspotAContent = document.getElementById('hotspotAContent');
-  var hotspotBContent = document.getElementById('hotspotBContent');
-  var hotspotCContent = document.getElementById('hotspotCContent');
-
-
-  clickHandlerCreate(HotSpotA, hotspotAContent, [hotspotBContent, hotspotCContent])
-  clickHandlerCreate(HotSpotB, hotspotBContent, [hotspotAContent, hotspotCContent])
-  clickHandlerCreate(HotSpotC, hotspotCContent, [hotspotAContent, hotspotBContent])
-}
-
 function hotspot(hotSpotDiv, args) {
+  console.log('hotSpotDiv', hotSpotDiv)
   /*start pannellum interaction code*/
   hotSpotDiv.classList.add('custom-tooltip');
   var span = document.createElement('span');
@@ -74,7 +68,6 @@ function hotspot(hotSpotDiv, args) {
   span.style.marginLeft = -(span.scrollWidth - hotSpotDiv.offsetWidth) / 2 + 'px';
   span.style.marginTop = -span.scrollHeight - 12 + 'px';
   /*end pannellum interaction code*/
-
-  addSidepanelActions(hotSpotDiv);
-  addHotspotClickHandlers();
 }
+
+addSidepanelActions();

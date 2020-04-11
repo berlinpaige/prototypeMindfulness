@@ -72,6 +72,10 @@ div.custom-tooltip:hover span:after {
   width: 40%;
 }
 
-.hideContent {
+.content {
   display: none;
+}
+
+.content.show-content {
+  display: block;
 }
