@@ -82,7 +82,7 @@ div.custom-tooltip:hover span:after {
   transition: width 0.25s linear;
 }
 
-#rightSidepanel.show-sidepanel {
+#rightSidepanel.show-contentContainer {
   transition: width 0.25s linear;
   width: 40%;
 }
@@ -94,7 +94,7 @@ div.custom-tooltip:hover span:after {
   transition: width 0.25s linear;
 }
 
-#leftSidepanel.show-sidepanel {
+#leftSidepanel.show-contentContainer {
   transition: width 0.25s linear;
   width: 40%;
 }
@@ -112,7 +112,7 @@ div.custom-tooltip:hover span:after {
   transform: translate(-50%, -50%);
 }
 
-#modal.show-sidepanel {
+#modal.show-contentContainer {
   border: 2px solid #000;
   width: 80%;
 }

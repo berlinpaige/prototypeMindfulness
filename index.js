@@ -50,60 +50,56 @@ var MODAL_ID = 'modal';
 var LEFT_SIDEPANEL_CLOSE_ID = 'leftSidepanelClose';
 var RIGHT_SIDEPANEL_CLOSE_ID = 'rightSidepanelClose';
 var MODAL_CLOSE_ID = 'modalClose';
-var SIDEPANEL_SHOW_CLASS = 'show-sidepanel';
+var CONTENT_CONTAINER_SHOW_CLASS = 'show-contentContainer';
 var CONTENT_SHOW_CLASS = 'show-content';
 /*end global constants*/
 
 function handleOpenLeftPanel(hotspotContentId) {
-  handleOpenPanel(hotspotContentId, LEFT_SIDEPANEL_ID);
+  handleOpenContentContainer(hotspotContentId, LEFT_SIDEPANEL_ID);
 }
 
 function handleOpenRightPanel(hotspotContentId) {
-  handleOpenPanel(hotspotContentId, RIGHT_SIDEPANEL_ID);
+  handleOpenContentContainer(hotspotContentId, RIGHT_SIDEPANEL_ID);
 }
 
 function handleOpenModal(hotspotContentId) {
-  handleOpenPanel(hotspotContentId, MODAL_ID);
+  handleOpenContentContainer(hotspotContentId, MODAL_ID);
 }
 
-function handleOpenPanel(hotspotContentId, panelId) {
-  var sidepanel = document.getElementById(panelId);
-  var hotspotContentDiv = document.getElementById(hotspotContentId);
-  var hotspotsToHide = document.getElementsByClassName(CONTENT_SHOW_CLASS);
-  var panelsToHide = document.getElementsByClassName(SIDEPANEL_SHOW_CLASS);
+function closeAllOpenContentHolders(classThatDeterminesHideShow) {
+  elementsToHide = document.getElementsByClassName(classThatDeterminesHideShow);
 
-  Array.prototype.forEach.call(hotspotsToHide, function (hotspot) {
-    hotspot.classList.remove(CONTENT_SHOW_CLASS)
+  Array.prototype.forEach.call(elementsToHide, function (hotspot) {
+    hotspot.classList.remove(classThatDeterminesHideShow)
   });
-  Array.prototype.forEach.call(panelsToHide, function (hotspot) {
-    hotspot.classList.remove(SIDEPANEL_SHOW_CLASS)
-  });
+}
+
+function handleOpenContentContainer(hotspotContentId, contentContainerId) {
+  closeAllOpenContentHolders(CONTENT_SHOW_CLASS);
+  closeAllOpenContentHolders(CONTENT_CONTAINER_SHOW_CLASS);
+
+  var contentContainer = document.getElementById(contentContainerId);
+  var hotspotContentDiv = document.getElementById(hotspotContentId);
 
   setTimeout(function () {
-    sidepanel.classList.add(SIDEPANEL_SHOW_CLASS);
+    contentContainer.classList.add(CONTENT_CONTAINER_SHOW_CLASS);
     hotspotContentDiv.classList.add(CONTENT_SHOW_CLASS);
   }, 500);
 }
 
+function addCloseClickHandlers(contentContainerId, contentContainerCloseId) {
+  var contentContainer = document.getElementById(contentContainerId);
+  var contentContainerClose = document.getElementById(contentContainerCloseId);
+
+  contentContainerClose.addEventListener('click', function () {
+    contentContainer.classList.remove(CONTENT_CONTAINER_SHOW_CLASS);
+  }, false)
+}
+
 function addSidepanelActions() {
-  var rightSidepanel = document.getElementById(RIGHT_SIDEPANEL_ID);
-  var leftSidepanel = document.getElementById(LEFT_SIDEPANEL_ID);
-  var modal = document.getElementById(MODAL_ID);
-  var rightSidepanelClose = document.getElementById(RIGHT_SIDEPANEL_CLOSE_ID);
-  var leftSidepanelClose = document.getElementById(LEFT_SIDEPANEL_CLOSE_ID);
-  var modalClose = document.getElementById(MODAL_CLOSE_ID);
-
-  leftSidepanelClose.addEventListener('click', function () {
-    leftSidepanel.classList.remove(SIDEPANEL_SHOW_CLASS);
-  }, false)
-
-  rightSidepanelClose.addEventListener('click', function () {
-    rightSidepanel.classList.remove(SIDEPANEL_SHOW_CLASS);
-  }, false)
-
-  modalClose.addEventListener('click', function () {
-    modal.classList.remove(SIDEPANEL_SHOW_CLASS);
-  }, false)
+  addCloseClickHandlers(RIGHT_SIDEPANEL_ID, RIGHT_SIDEPANEL_CLOSE_ID)
+  addCloseClickHandlers(LEFT_SIDEPANEL_ID, LEFT_SIDEPANEL_CLOSE_ID)
+  addCloseClickHandlers(MODAL_ID, MODAL_CLOSE_ID)
 }
 
 /*start pannellum setup code*/
