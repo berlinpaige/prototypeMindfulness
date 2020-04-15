@@ -61,6 +61,12 @@ div.custom-tooltip:hover span:after {
   display: inline-block;
 }
 
+#modalClose {
+  padding: 15px;
+  background-color: lavender;
+  display: inline-block;
+}
+
 .sidepanel {
   border: 2px solid #000;
   background-color: #FFF;
@@ -81,7 +87,6 @@ div.custom-tooltip:hover span:after {
   width: 40%;
 }
 
-
 #leftSidepanel {
   width: 0%;
   height: 100%;
@@ -92,6 +97,24 @@ div.custom-tooltip:hover span:after {
 #leftSidepanel.show-sidepanel {
   transition: width 0.25s linear;
   width: 40%;
+}
+
+#modal {
+  background-color: #FFF;
+  overflow-y: scroll;
+  position: absolute;
+  z-index: 1000;
+  width: 0%;
+  height: 80%;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#modal.show-sidepanel {
+  border: 2px solid #000;
+  width: 80%;
 }
 
 .content {

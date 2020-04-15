@@ -23,7 +23,7 @@ viewer = pannellum.viewer('panorama', {
       "pitch": -26,
       "yaw": 40,
       "cssClass": "custom-hotspot",
-      "clickHandlerFunc": function () { handleOpenLeftPanel("newspaper") },
+      "clickHandlerFunc": function () { handleOpenModal("newspaper") },
       "createTooltipFunc": hotspot,
       "createTooltipArgs": "CSS Newspaper"
     }
@@ -46,33 +46,39 @@ viewer = pannellum.viewer('panorama', {
 /*begin global constants*/
 var RIGHT_SIDEPANEL_ID = 'rightSidepanel';
 var LEFT_SIDEPANEL_ID = 'leftSidepanel';
+var MODAL_ID = 'modal';
 var LEFT_SIDEPANEL_CLOSE_ID = 'leftSidepanelClose';
 var RIGHT_SIDEPANEL_CLOSE_ID = 'rightSidepanelClose';
+var MODAL_CLOSE_ID = 'modalClose';
 var SIDEPANEL_SHOW_CLASS = 'show-sidepanel';
 var CONTENT_SHOW_CLASS = 'show-content';
 /*end global constants*/
 
 function handleOpenLeftPanel(hotspotContentId) {
-  var rightSidepanel = document.getElementById(RIGHT_SIDEPANEL_ID);
-  rightSidepanel.classList.remove(SIDEPANEL_SHOW_CLASS);
   handleOpenPanel(hotspotContentId, LEFT_SIDEPANEL_ID);
 }
 
 function handleOpenRightPanel(hotspotContentId) {
-  var leftSidepanel = document.getElementById(LEFT_SIDEPANEL_ID);
-  leftSidepanel.classList.remove(SIDEPANEL_SHOW_CLASS);
   handleOpenPanel(hotspotContentId, RIGHT_SIDEPANEL_ID);
+}
+
+function handleOpenModal(hotspotContentId) {
+  handleOpenPanel(hotspotContentId, MODAL_ID);
 }
 
 function handleOpenPanel(hotspotContentId, panelId) {
   var sidepanel = document.getElementById(panelId);
   var hotspotContentDiv = document.getElementById(hotspotContentId);
   var hotspotsToHide = document.getElementsByClassName(CONTENT_SHOW_CLASS);
+  var panelsToHide = document.getElementsByClassName(SIDEPANEL_SHOW_CLASS);
 
-  sidepanel.classList.remove(SIDEPANEL_SHOW_CLASS);
   Array.prototype.forEach.call(hotspotsToHide, function (hotspot) {
     hotspot.classList.remove(CONTENT_SHOW_CLASS)
   });
+  Array.prototype.forEach.call(panelsToHide, function (hotspot) {
+    hotspot.classList.remove(SIDEPANEL_SHOW_CLASS)
+  });
+
   setTimeout(function () {
     sidepanel.classList.add(SIDEPANEL_SHOW_CLASS);
     hotspotContentDiv.classList.add(CONTENT_SHOW_CLASS);
@@ -82,8 +88,10 @@ function handleOpenPanel(hotspotContentId, panelId) {
 function addSidepanelActions() {
   var rightSidepanel = document.getElementById(RIGHT_SIDEPANEL_ID);
   var leftSidepanel = document.getElementById(LEFT_SIDEPANEL_ID);
+  var modal = document.getElementById(MODAL_ID);
   var rightSidepanelClose = document.getElementById(RIGHT_SIDEPANEL_CLOSE_ID);
   var leftSidepanelClose = document.getElementById(LEFT_SIDEPANEL_CLOSE_ID);
+  var modalClose = document.getElementById(MODAL_CLOSE_ID);
 
   leftSidepanelClose.addEventListener('click', function () {
     leftSidepanel.classList.remove(SIDEPANEL_SHOW_CLASS);
@@ -91,6 +99,10 @@ function addSidepanelActions() {
 
   rightSidepanelClose.addEventListener('click', function () {
     rightSidepanel.classList.remove(SIDEPANEL_SHOW_CLASS);
+  }, false)
+
+  modalClose.addEventListener('click', function () {
+    modal.classList.remove(SIDEPANEL_SHOW_CLASS);
   }, false)
 }
 
