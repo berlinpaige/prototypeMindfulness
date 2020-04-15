@@ -27,7 +27,20 @@ viewer = pannellum.viewer('panorama', {
       "createTooltipFunc": hotspot,
       "createTooltipArgs": "CSS Newspaper"
     }
-  ]
+  ],
+  // DS 4/12/2020
+  // Make it load automatically, and turn on the hotspot debugger.
+  "autoLoad": true,
+  "hotSpotDebug": true,
+  // DS 4/12/2020
+  // Here I'm going to configure the camera
+  // The ceiling and floors don't look very good,
+  // so let's limit the view of it.
+  "maxPitch": 65,
+  "minPitch": -95
+  // Upon testing, this seems to work best at lower resolutions.
+  // We may want to move the viewer into a fixed size window, but that might make it strange on mobile.
+  // Haven't yet tested this on mobile - this change can be removed if it doesn't work out.
 });
 
 /*begin global constants*/
