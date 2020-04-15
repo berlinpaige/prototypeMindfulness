@@ -96,7 +96,7 @@ function addCloseClickHandlers(contentContainerId, contentContainerCloseId) {
   }, false)
 }
 
-function addSidepanelActions() {
+function addContentContainerActions() {
   addCloseClickHandlers(RIGHT_SIDEPANEL_ID, RIGHT_SIDEPANEL_CLOSE_ID)
   addCloseClickHandlers(LEFT_SIDEPANEL_ID, LEFT_SIDEPANEL_CLOSE_ID)
   addCloseClickHandlers(MODAL_ID, MODAL_CLOSE_ID)
@@ -116,5 +116,5 @@ function hotspot(hotSpotDiv, args) {
 
 
 /*start custom function calls*/
-addSidepanelActions();
+addContentContainerActions();
 /*end custom function calls*/
