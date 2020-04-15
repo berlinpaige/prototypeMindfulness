@@ -49,25 +49,47 @@ div.custom-tooltip:hover span:after {
   margin: 0 50%;
 }
 
-#sidepanelClose {
+#rightSidepanelClose {
   padding: 15px;
   background-color: lavender;
   display: inline-block;
 }
 
-#sidepanel {
+#leftSidepanelClose {
+  padding: 15px;
+  background-color: lavender;
+  display: inline-block;
+}
+
+.sidepanel {
   border: 2px solid #000;
   background-color: #FFF;
-  width: 0%;
-  height: 100%;
   overflow-y: scroll;
   position: absolute;
-  right: 0;
   z-index: 1000;
+}
+
+#rightSidepanel {
+  width: 0%;
+  height: 100%;
+  right: 0;
   transition: width 0.25s linear;
 }
 
-#sidepanel.show-sidepanel {
+#rightSidepanel.show-sidepanel {
+  transition: width 0.25s linear;
+  width: 40%;
+}
+
+
+#leftSidepanel {
+  width: 0%;
+  height: 100%;
+  left: 0;
+  transition: width 0.25s linear;
+}
+
+#leftSidepanel.show-sidepanel {
   transition: width 0.25s linear;
   width: 40%;
 }

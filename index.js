@@ -7,7 +7,7 @@ viewer = pannellum.viewer('panorama', {
       "pitch": 2.5,
       "yaw": 13,
       "cssClass": "custom-hotspot",
-      "clickHandlerFunc": function () { handleOpenPanel("bulletin") },
+      "clickHandlerFunc": function () { handleOpenRightPanel("bulletin") },
       "createTooltipFunc": hotspot,
       "createTooltipArgs": "CSS bulletin"
     },
@@ -15,7 +15,7 @@ viewer = pannellum.viewer('panorama', {
       "pitch": 5,
       "yaw": 237,
       "cssClass": "custom-hotspot",
-      "clickHandlerFunc": function () { handleOpenPanel("amazingPhoto") },
+      "clickHandlerFunc": function () { handleOpenLeftPanel("amazingPhoto") },
       "createTooltipFunc": hotspot,
       "createTooltipArgs": "Historial image"
     },
@@ -23,7 +23,7 @@ viewer = pannellum.viewer('panorama', {
       "pitch": -26,
       "yaw": 40,
       "cssClass": "custom-hotspot",
-      "clickHandlerFunc": function () { handleOpenPanel("newspaper") },
+      "clickHandlerFunc": function () { handleOpenLeftPanel("newspaper") },
       "createTooltipFunc": hotspot,
       "createTooltipArgs": "CSS Newspaper"
     }
@@ -44,14 +44,28 @@ viewer = pannellum.viewer('panorama', {
 });
 
 /*begin global constants*/
-var SIDEPANEL_ID = 'sidepanel';
-var SIDEPANEL_CLOSE_ID = 'sidepanelClose';
+var RIGHT_SIDEPANEL_ID = 'rightSidepanel';
+var LEFT_SIDEPANEL_ID = 'leftSidepanel';
+var LEFT_SIDEPANEL_CLOSE_ID = 'leftSidepanelClose';
+var RIGHT_SIDEPANEL_CLOSE_ID = 'rightSidepanelClose';
 var SIDEPANEL_SHOW_CLASS = 'show-sidepanel';
 var CONTENT_SHOW_CLASS = 'show-content';
 /*end global constants*/
 
-function handleOpenPanel(hotspotContentId) {
-  var sidepanel = document.getElementById(SIDEPANEL_ID);
+function handleOpenLeftPanel(hotspotContentId) {
+  var rightSidepanel = document.getElementById(RIGHT_SIDEPANEL_ID);
+  rightSidepanel.classList.remove(SIDEPANEL_SHOW_CLASS);
+  handleOpenPanel(hotspotContentId, LEFT_SIDEPANEL_ID);
+}
+
+function handleOpenRightPanel(hotspotContentId) {
+  var leftSidepanel = document.getElementById(LEFT_SIDEPANEL_ID);
+  leftSidepanel.classList.remove(SIDEPANEL_SHOW_CLASS);
+  handleOpenPanel(hotspotContentId, RIGHT_SIDEPANEL_ID);
+}
+
+function handleOpenPanel(hotspotContentId, panelId) {
+  var sidepanel = document.getElementById(panelId);
   var hotspotContentDiv = document.getElementById(hotspotContentId);
   var hotspotsToHide = document.getElementsByClassName(CONTENT_SHOW_CLASS);
 
@@ -66,11 +80,17 @@ function handleOpenPanel(hotspotContentId) {
 }
 
 function addSidepanelActions() {
-  var sidepanel = document.getElementById(SIDEPANEL_ID);
-  var sidepanelClose = document.getElementById(SIDEPANEL_CLOSE_ID);
+  var rightSidepanel = document.getElementById(RIGHT_SIDEPANEL_ID);
+  var leftSidepanel = document.getElementById(LEFT_SIDEPANEL_ID);
+  var rightSidepanelClose = document.getElementById(RIGHT_SIDEPANEL_CLOSE_ID);
+  var leftSidepanelClose = document.getElementById(LEFT_SIDEPANEL_CLOSE_ID);
 
-  sidepanelClose.addEventListener('click', function (event) {
-    sidepanel.classList.remove(SIDEPANEL_SHOW_CLASS);
+  leftSidepanelClose.addEventListener('click', function () {
+    leftSidepanel.classList.remove(SIDEPANEL_SHOW_CLASS);
+  }, false)
+
+  rightSidepanelClose.addEventListener('click', function () {
+    rightSidepanel.classList.remove(SIDEPANEL_SHOW_CLASS);
   }, false)
 }
 
