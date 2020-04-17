@@ -12,12 +12,12 @@ viewer = pannellum.viewer('panorama', {
       "createTooltipArgs": "CSS bulletin"
     },
     {
-      "pitch": 5,
-      "yaw": 237,
+      "pitch": -3,
+      "yaw": -119,
       "cssClass": "custom-hotspot",
-      "clickHandlerFunc": function () { handleOpenLeftPanel("amazingPhoto") },
+      "clickHandlerFunc": function () { handleOpenLeftPanel("historicalArchives") },
       "createTooltipFunc": hotspot,
-      "createTooltipArgs": "Historial image"
+      "createTooltipArgs": "Historical Archives"
     },
     {
       "pitch": -26,
@@ -26,7 +26,33 @@ viewer = pannellum.viewer('panorama', {
       "clickHandlerFunc": function () { handleOpenModal("newspaper") },
       "createTooltipFunc": hotspot,
       "createTooltipArgs": "CSS Newspaper"
+    },
+    // Coffee edit
+    {
+      "pitch": -4,
+      "yaw": 31,
+      "cssClass": "custom-hotspot",
+      "clickHandlerFunc": function () { handleOpenModal("coffeePot") },
+      "createTooltipFunc": hotspot,
+      "createTooltipArgs": "Coffee Pot"
+    },
+    {
+      "pitch": 5,
+      "yaw": 179,
+      "cssClass": "custom-hotspot",
+      "clickHandlerFunc": function () { handleOpenModal("window") },
+      "createTooltipFunc": hotspot,
+      "createTooltipArgs": "Window"
+    },
+    {
+      "pitch": 5,
+      "yaw": 123,
+      "cssClass": "custom-hotspot",
+      "clickHandlerFunc": function () { handleOpenModal("artGallery") },
+      "createTooltipFunc": hotspot,
+      "createTooltipArgs": "Art Gallery"
     }
+
   ],
   // DS 4/12/2020
   // Make it load automatically, and turn on the hotspot debugger.
@@ -118,3 +144,69 @@ function hotspot(hotSpotDiv, args) {
 /*start custom function calls*/
 addContentContainerActions();
 /*end custom function calls*/
+
+
+//ES, 4-17-20, I tried to create a carousel
+//but I couldn't quite get it to work.
+//I think the issue is in determining the width of the slide in the slides array.
+//When I tried "console.log(slideWidth);" to check if it was working, it returned 0.
+//Maybe this is because it's in a modal window.
+//I followed a tutorial, I wouldn't know how to do this otherwise.
+//I spent a good deal of time on it so I wanted to put it here, but feel free to change this so we have something that works!
+
+/*start art gallery code*/
+/*
+var track = document.querySelector('.carousel_track');
+var slides = Array.from(track.children);
+var nextButton = document.querySelector('#buttonRight');
+var prevButton = document.querySelector('#buttonLeft');
+var dotsNav = document.querySelector('.carousel_nav');
+var dots = Array.from(dotsNav.children);
+
+var slideWidth = slides[0].getBoundingClientRect().width;
+
+console.log(track.children);
+
+//Arrange the slides next to one another
+var setSlidePosition = function(slide, index) {
+  slide.style.left = slideWidth * index + 'px';
+}
+slides.forEach(setSlidePosition);
+
+var moveToSlide = function(track, currentSlide, targetSlide) {
+  track.style.transform = 'translateX(-' + targetSlide.style.left + ')'
+  currentSlide.classList.remove('current-slide');
+  targetSlide.classList.add('current-slide');
+}
+
+//When I click right, move slides to the right
+nextButton.addEventListener('click', e => {
+  var currentSlide = track.querySelector('.current-slide');
+  var nextSlide = currentSlide.nextElementSibling;
+
+  moveToSlide(track, currentSlide, nextSlide);
+})
+
+//When I click left, move slides to the left
+prevButton.addEventListener('click', e => {
+  var currentSlide = track.querySelector('.current-slide');
+  var prevSlide = currentSlide.previousElementSibling;
+
+  moveToSlide(track, currentSlide, prevSlide);
+})
+
+
+//Whn I click nav indicators, move to that slides
+dotsNav.addEventListener('click', e => {
+  // what indicator was clicked on?
+  var targetDot = e.target.closest('button');
+
+  if (!targetDot) return;
+
+  var currentSlide = track.querySelector('.current-slide');
+  var currentDot = dotsNav.querySelector('.current-slide');
+  var targetIndex = dots.findIndex(dot => dot === targetDot);
+  console.log(targetIndex);
+})
+*/
+/*end art gallery code*/
