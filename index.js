@@ -155,7 +155,7 @@ addContentContainerActions();
 //I spent a good deal of time on it so I wanted to put it here, but feel free to change this so we have something that works!
 
 /*start art gallery code*/
-/*
+
 var track = document.querySelector('.carousel_track');
 var slides = Array.from(track.children);
 var nextButton = document.querySelector('#buttonRight');
@@ -163,17 +163,18 @@ var prevButton = document.querySelector('#buttonLeft');
 var dotsNav = document.querySelector('.carousel_nav');
 var dots = Array.from(dotsNav.children);
 
-var slideWidth = slides[0].getBoundingClientRect().width;
-
-console.log(track.children);
+//this is a bit britle and depends on current CSS calculations
+var windowWidth = window.innerWidth;
+var modalWidth = windowWidth * .8;
+var slideWidth = modalWidth * .8;
 
 //Arrange the slides next to one another
-var setSlidePosition = function(slide, index) {
+var setSlidePosition = function (slide, index) {
   slide.style.left = slideWidth * index + 'px';
 }
 slides.forEach(setSlidePosition);
 
-var moveToSlide = function(track, currentSlide, targetSlide) {
+var moveToSlide = function (track, currentSlide, targetSlide) {
   track.style.transform = 'translateX(-' + targetSlide.style.left + ')'
   currentSlide.classList.remove('current-slide');
   targetSlide.classList.add('current-slide');
@@ -208,5 +209,5 @@ dotsNav.addEventListener('click', e => {
   var targetIndex = dots.findIndex(dot => dot === targetDot);
   console.log(targetIndex);
 })
-*/
+
 /*end art gallery code*/
