@@ -2,71 +2,104 @@
 viewer = pannellum.viewer('panorama', {
   "type": "equirectangular",
   "panorama": "Equirectangular.png",
-  "hotSpots": [
-    {
-      "pitch": 2.5,
-      "yaw": 13,
-      "cssClass": "custom-hotspot",
-      "clickHandlerFunc": function () { handleOpenRightPanel("bulletin") },
-      "createTooltipFunc": hotspot,
-      "createTooltipArgs": "CSS bulletin"
-    },
-    {
-      "pitch": -3,
-      "yaw": -119,
-      "cssClass": "custom-hotspot",
-      "clickHandlerFunc": function () { handleOpenLeftPanel("historicalArchives") },
-      "createTooltipFunc": hotspot,
-      "createTooltipArgs": "Historical Archives"
-    },
-    {
-      "pitch": -26,
-      "yaw": 40,
-      "cssClass": "custom-hotspot",
-      "clickHandlerFunc": function () { handleOpenModal("newspaper") },
-      "createTooltipFunc": hotspot,
-      "createTooltipArgs": "CSS Newspaper"
-    },
-    // Coffee edit
-    {
-      "pitch": -4,
-      "yaw": 31,
-      "cssClass": "custom-hotspot",
-      "clickHandlerFunc": function () { handleOpenModal("coffeePot") },
-      "createTooltipFunc": hotspot,
-      "createTooltipArgs": "Coffee Pot"
-    },
-    {
-      "pitch": 5,
-      "yaw": 179,
-      "cssClass": "custom-hotspot",
-      "clickHandlerFunc": function () { handleOpenModal("window") },
-      "createTooltipFunc": hotspot,
-      "createTooltipArgs": "Window"
-    },
-    {
-      "pitch": 5,
-      "yaw": 123,
-      "cssClass": "custom-hotspot",
-      "clickHandlerFunc": function () { handleOpenModal("artGallery") },
-      "createTooltipFunc": hotspot,
-      "createTooltipArgs": "Art Gallery"
-    }
-
-  ],
-  // DS 4/12/2020
-  // Make it load automatically, and turn on the hotspot debugger.
-  "autoLoad": true,
-  "hotSpotDebug": true,
-  // DS 4/12/2020
-  // Here I'm going to configure the camera
-  // The ceiling and floors don't look very good,
-  // so let's limit the view of it.
-  "maxPitch": 65,
-  "minPitch": -95
-  // Upon testing, this seems to work best at lower resolutions.
-  // We may want to move the viewer into a fixed size window, but that might make it strange on mobile.
-  // Haven't yet tested this on mobile - this change can be removed if it doesn't work out.
+    "hotSpots": [
+        { // 1
+            "pitch": -12,
+            "yaw": 125,
+            "cssClass": "custom-hotspot",
+            "clickHandlerFunc": function () { handleOpenModal("mindfulness") },
+            "createTooltipFunc": hotspot,
+            "createTooltipArgs": "Mindfulness Techniques"
+        },
+        { // 2
+            "pitch": 6,
+            "yaw": 61,
+            "cssClass": "custom-hotspot",
+            "clickHandlerFunc": function () { handleOpenModal("artGallery") },
+            "createTooltipFunc": hotspot,
+            "createTooltipArgs": "Art Gallery"
+        },
+        {//3
+          "pitch": 5,
+          "yaw": 123,
+          "cssClass": "custom-hotspot",
+          "clickHandlerFunc": function () { handleOpenModal("historicalAssets") },
+          "createTooltipFunc": hotspot,
+          "createTooltipArgs": "Historical Photographs"
+        },
+        { // 4
+            "pitch": 5,
+            "yaw": 179,
+            "cssClass": "custom-hotspot",
+            "clickHandlerFunc": function () { handleOpenModal("window") },
+            "createTooltipFunc": hotspot,
+            "createTooltipArgs": "Window"
+        },
+        { // 5
+            "pitch": 14,
+            "yaw": -73,
+            "cssClass": "custom-hotspot",
+            "clickHandlerFunc": function () { handleOpenModal("") }, // UPDATE
+            "createTooltipFunc": hotspot,
+            "createTooltipArgs": "Sculpture (name?)"
+        },
+        { // 5 (2)
+            "pitch": 14,
+            "yaw": -105,
+            "cssClass": "custom-hotspot",
+            "clickHandlerFunc": function () { handleOpenModal("") }, // UPDATE
+            "createTooltipFunc": hotspot,
+            "createTooltipArgs": "Sculpture (name?)"
+        },
+        { // 8
+          "pitch": -25,
+          "yaw": -40,
+          "cssClass": "custom-hotspot",
+          "clickHandlerFunc": function () { handleOpenModal("newspaper") },
+          "createTooltipFunc": hotspot,
+          "createTooltipArgs": "The Script News"
+        },
+        {//9
+          "pitch": -14,
+          "yaw": 70,
+          "cssClass": "custom-hotspot",
+          "clickHandlerFunc": function () { handleOpenModal("earthClub") },
+          "createTooltipFunc": hotspot,
+          "createTooltipArgs": "Earth Action Club"
+        },
+        // 11
+        {
+            "pitch": -4,
+            "yaw": 31,
+            "cssClass": "custom-hotspot",
+            "clickHandlerFunc": function () { handleOpenModal("coffeePot") },
+            "createTooltipFunc": hotspot,
+            "createTooltipArgs": "Coffee Pot"
+        },
+        //13
+        {
+            "pitch": -16,
+            "yaw": -89,
+            "cssClass": "custom-hotspot",
+            "clickHandlerFunc": function () { handleOpenModal("fireplace") },
+            "createTooltipFunc": hotspot,
+            "createTooltipArgs": "Fireplace"
+        },
+        { // Addition... The Quarry made more sense here.
+          "pitch": -3,
+          "yaw": -119,
+          "cssClass": "custom-hotspot",
+          "clickHandlerFunc": function () { handleOpenLeftPanel("libraryResources") },
+          "createTooltipFunc": hotspot,
+          "createTooltipArgs": "Library"
+        }
+    ],
+    // Panellum Config
+    "autoLoad": true,
+    "hotSpotDebug": true,
+    "maxPitch": 65,
+    "minPitch": -95,
+    "showZoomCtrl": false
 });
 
 /*begin global constants*/
@@ -154,6 +187,14 @@ addContentContainerActions();
 //I followed a tutorial, I wouldn't know how to do this otherwise.
 //I spent a good deal of time on it so I wanted to put it here, but feel free to change this so we have something that works!
 
+//ES, 4-17-20, I tried to create a carousel
+//but I couldn't quite get it to work.
+//I think the issue is in determining the width of the slide in the slides array.
+//When I tried "console.log(slideWidth);" to check if it was working, it returned 0.
+//Maybe this is because it's in a modal window.
+//I followed a tutorial, I wouldn't know how to do this otherwise.
+//I spent a good deal of time on it so I wanted to put it here, but feel free to change this so we have something that works!
+
 /*start art gallery code*/
 
 var track = document.querySelector('.carousel_track');
@@ -163,10 +204,15 @@ var prevButton = document.querySelector('#buttonLeft');
 var dotsNav = document.querySelector('.carousel_nav');
 var dots = Array.from(dotsNav.children);
 
+
+
+// var slideWidth = slides[0].getBoundingClientRect().width;
+
 //this is a bit britle and depends on current CSS calculations
 var windowWidth = window.innerWidth;
 var modalWidth = windowWidth * .8;
 var slideWidth = modalWidth * .8;
+
 
 //Arrange the slides next to one another
 var setSlidePosition = function (slide, index) {
@@ -175,27 +221,55 @@ var setSlidePosition = function (slide, index) {
 slides.forEach(setSlidePosition);
 
 var moveToSlide = function (track, currentSlide, targetSlide) {
-  track.style.transform = 'translateX(-' + targetSlide.style.left + ')'
+  track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
   currentSlide.classList.remove('current-slide');
   targetSlide.classList.add('current-slide');
+}
+
+var updateDots = function (currentDot, targetDot) {
+  currentDot.classList.remove('current-slide');
+  targetDot.classList.add('current-slide');
+}
+
+var hideShowArrows = function (slides, prevButton, nextButton, targetIndex) {
+  if (targetIndex === 0) {
+    prevButton.classList.add('is-hidden');
+    nextButton.classList.remove('is-hidden');
+  } else if (targetIndex === slides.length - 1) {
+    prevButton.classList.remove('is-hidden');
+    nextButton.classList.add('is-hidden');
+  } else {
+    prevButton.classList.remove('is-hidden');
+    nextButton.classList.remove('is-hidden');
+  }
 }
 
 //When I click right, move slides to the right
 nextButton.addEventListener('click', e => {
   var currentSlide = track.querySelector('.current-slide');
   var nextSlide = currentSlide.nextElementSibling;
+  var currentDot = dotsNav.querySelector('.current-slide');
+  var nextDot = currentDot.nextElementSibling;
+  var nextIndex = slides.findIndex(slide => slide === nextSlide);
 
   moveToSlide(track, currentSlide, nextSlide);
+  updateDots(currentDot, nextDot);
+  hideShowArrows(slides, prevButton, nextButton, nextIndex);
+
 })
 
 //When I click left, move slides to the left
 prevButton.addEventListener('click', e => {
   var currentSlide = track.querySelector('.current-slide');
   var prevSlide = currentSlide.previousElementSibling;
+  var currentDot = dotsNav.querySelector('.current-slide');
+  var prevDot = currentDot.previousElementSibling;
+  var prevIndex = slides.findIndex(slide => slide === prevSlide);
 
   moveToSlide(track, currentSlide, prevSlide);
+  updateDots(currentDot, prevDot);
+  hideShowArrows(slides, prevButton, nextButton, prevIndex);
 })
-
 
 //Whn I click nav indicators, move to that slides
 dotsNav.addEventListener('click', e => {
@@ -207,7 +281,12 @@ dotsNav.addEventListener('click', e => {
   var currentSlide = track.querySelector('.current-slide');
   var currentDot = dotsNav.querySelector('.current-slide');
   var targetIndex = dots.findIndex(dot => dot === targetDot);
-  console.log(targetIndex);
+  var targetSlide = slides[targetIndex];
+
+  moveToSlide(track, currentSlide, targetSlide);
+  updateDots(currentDot, targetDot);
+  hideShowArrows(slides, prevButton, nextButton, targetIndex);
+
 })
 
 /*end art gallery code*/
