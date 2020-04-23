@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html>
 
@@ -38,11 +37,11 @@
       </div>
       <div class="birdContainer">
         <!-- Bird images -->
-        <img class="birdImages" src="images/Nature/birdChoir.png" alt="">
-        <img class="birdImages" src="images/Nature/goldFinch.png" alt="">
-        <img class="birdImages" src="images/Nature/purpleFinch.png" alt="">
-        <img class="birdImages" src="images/Nature/redBellied.png" alt="">
-        <img class="birdImages" src="images/Nature/warbler.png" alt="">
+        <img data-imageIdentifier="birdChoir" class="birdImages" src="images/Nature/birdChoir.png" alt="">
+        <img data-imageIdentifier="goldFinch" class="birdImages" src="images/Nature/goldFinch.png" alt="">
+        <img data-imageIdentifier="purpleFinch" class="birdImages" src="images/Nature/purpleFinch.png" alt="">
+        <img data-imageIdentifier="redBellied" class="birdImages" src="images/Nature/redBellied.png" alt="">
+        <img data-imageIdentifier="warbler" class="birdImages" src="images/Nature/warbler.png" alt="">
       </div>
       <div class="natureContainer">
         <!-- nature images -->
@@ -61,23 +60,23 @@
       <br>
       <!-- bird audio, ideally this would play with the click of the corresponding bird image,
     javascipt may be needed here as well-->
-      <audio controls>
+      <audio data-audioIdentifier="birdChoir" class="birdAudio" controls>
         <source src="audio/birdChoir.mp3" type="audio/mpeg">
       </audio>
       <br>
-      <audio controls>
+      <audio data-audioIdentifier="warbler" class="birdAudio" controls>
         <source src="audio/chestnutSidedWarbler.mp3" type="audio/mpeg">
       </audio>
       <br>
-      <audio controls>
+      <audio data-audioIdentifier="goldFinch" class="birdAudio" controls>
         <source src="audio/goldFinch.mp3" type="audio/mpeg">
       </audio>
       <br>
-      <audio controls>
+      <audio data-audioIdentifier="purpleFinch" class="birdAudio" controls>
         <source src="audio/purpleFinch.wav" type="audio/wav">
       </audio>
       <br>
-      <audio controls>
+      <audio data-audioIdentifier="redBellied" class="birdAudio" controls>
         <source src="audio/redBelliedWoodpecker.mp3" type="audio/wav">
       </audio>
     </div>
@@ -91,7 +90,8 @@
           Click on the arrows to look at some of the art displayed on campus.
         </p>
         <p>
-          Learn more about art at the college and the artists <a class="artLink" href="https://libguides.css.edu/archives/art"> here. </a>
+          Learn more about art at the college and the artists <a class="artLink"
+            href="https://libguides.css.edu/archives/art"> here. </a>
         </p>
         <!-- <a class="artLink" href="https://www.startribune.com/minnesota-matters-duluth-nun-s-art-intended-for-a-president/224131511/">The gift JFK never received!</a> -->
       </div>
@@ -180,10 +180,14 @@
         </p>
       </div>
       <div class="historicalImageContainer">
-        <img class="historicalImages" src="images/History/historicalGallery.jpg" alt="A photo of St. Scholastica from the past" />
-        <img class="historicalImages" src="images/History/historicalTwo.jpg" alt="A photo of St. Scholastica from the past" />
-        <img class="historicalImages" src="images/History/historicalThree.jpg" alt="A photo of St. Scholastica from the past" />
-        <img class="historicalImages" src="images/History/historicalFour.jpg" alt="A photo of St. Scholastica from the past" />
+        <img class="historicalImages" src="images/History/historicalGallery.jpg"
+          alt="A photo of St. Scholastica from the past" />
+        <img class="historicalImages" src="images/History/historicalTwo.jpg"
+          alt="A photo of St. Scholastica from the past" />
+        <img class="historicalImages" src="images/History/historicalThree.jpg"
+          alt="A photo of St. Scholastica from the past" />
+        <img class="historicalImages" src="images/History/historicalFour.jpg"
+          alt="A photo of St. Scholastica from the past" />
       </div>
     </div>
 
@@ -213,10 +217,12 @@
         <h1>You found a collection of books.</h1>
         <img class="libraryImage" src="images/Library/bookCollection.png" alt="books on shelf" />
         <p>
-          Relax with a good read. You can find one <a class=libraryLink href="https://libguides.css.edu/CSSLibrary">here,</a> through the college's library.
+          Relax with a good read. You can find one <a class=libraryLink
+            href="https://libguides.css.edu/CSSLibrary">here,</a> through the college's library.
         </p>
         <p>
-          For more great content explore <a class=libraryLink href="https://quarry.css.edu/">the Quarry</a>, the college's online digital repository.
+          For more great content explore <a class=libraryLink href="https://quarry.css.edu/">the Quarry</a>, the
+          college's online digital repository.
         </p>
         <p>
           Discover an expanding collection of photographs and publications dating from 1903 to the present!

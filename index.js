@@ -2,104 +2,104 @@
 viewer = pannellum.viewer('panorama', {
   "type": "equirectangular",
   "panorama": "Equirectangular.png",
-    "hotSpots": [
-        { // 1
-            "pitch": -12,
-            "yaw": 125,
-            "cssClass": "custom-hotspot",
-            "clickHandlerFunc": function () { handleOpenModal("mindfulness") },
-            "createTooltipFunc": hotspot,
-            "createTooltipArgs": "Mindfulness Techniques"
-        },
-        { // 2
-            "pitch": 6,
-            "yaw": 61,
-            "cssClass": "custom-hotspot",
-            "clickHandlerFunc": function () { handleOpenModal("artGallery") },
-            "createTooltipFunc": hotspot,
-            "createTooltipArgs": "Art Gallery"
-        },
-        {//3
-          "pitch": 5,
-          "yaw": 123,
-          "cssClass": "custom-hotspot",
-          "clickHandlerFunc": function () { handleOpenModal("historicalAssets") },
-          "createTooltipFunc": hotspot,
-          "createTooltipArgs": "Historical Photographs"
-        },
-        { // 4
-            "pitch": 5,
-            "yaw": 179,
-            "cssClass": "custom-hotspot",
-            "clickHandlerFunc": function () { handleOpenModal("window") },
-            "createTooltipFunc": hotspot,
-            "createTooltipArgs": "Window"
-        },
-        { // 5
-            "pitch": 14,
-            "yaw": -73,
-            "cssClass": "custom-hotspot",
-            "clickHandlerFunc": function () { handleOpenModal("") }, // UPDATE
-            "createTooltipFunc": hotspot,
-            "createTooltipArgs": "Sculpture (name?)"
-        },
-        { // 5 (2)
-            "pitch": 14,
-            "yaw": -105,
-            "cssClass": "custom-hotspot",
-            "clickHandlerFunc": function () { handleOpenModal("") }, // UPDATE
-            "createTooltipFunc": hotspot,
-            "createTooltipArgs": "Sculpture (name?)"
-        },
-        { // 8
-          "pitch": -25,
-          "yaw": -40,
-          "cssClass": "custom-hotspot",
-          "clickHandlerFunc": function () { handleOpenModal("newspaper") },
-          "createTooltipFunc": hotspot,
-          "createTooltipArgs": "The Script News"
-        },
-        {//9
-          "pitch": -14,
-          "yaw": 70,
-          "cssClass": "custom-hotspot",
-          "clickHandlerFunc": function () { handleOpenModal("earthClub") },
-          "createTooltipFunc": hotspot,
-          "createTooltipArgs": "Earth Action Club"
-        },
-        // 11
-        {
-            "pitch": -4,
-            "yaw": 31,
-            "cssClass": "custom-hotspot",
-            "clickHandlerFunc": function () { handleOpenModal("coffeePot") },
-            "createTooltipFunc": hotspot,
-            "createTooltipArgs": "Coffee Pot"
-        },
-        //13
-        {
-            "pitch": -16,
-            "yaw": -89,
-            "cssClass": "custom-hotspot",
-            "clickHandlerFunc": function () { handleOpenModal("fireplace") },
-            "createTooltipFunc": hotspot,
-            "createTooltipArgs": "Fireplace"
-        },
-        { // Addition... The Quarry made more sense here.
-          "pitch": -3,
-          "yaw": -119,
-          "cssClass": "custom-hotspot",
-          "clickHandlerFunc": function () { handleOpenLeftPanel("libraryResources") },
-          "createTooltipFunc": hotspot,
-          "createTooltipArgs": "Library"
-        }
-    ],
-    // Panellum Config
-    "autoLoad": true,
-    "hotSpotDebug": true,
-    "maxPitch": 65,
-    "minPitch": -95,
-    "showZoomCtrl": false
+  "hotSpots": [
+    { // 1
+      "pitch": -12,
+      "yaw": 125,
+      "cssClass": "custom-hotspot",
+      "clickHandlerFunc": function () { handleOpenModal("mindfulness") },
+      "createTooltipFunc": hotspot,
+      "createTooltipArgs": "Mindfulness Techniques"
+    },
+    { // 2
+      "pitch": 6,
+      "yaw": 61,
+      "cssClass": "custom-hotspot",
+      "clickHandlerFunc": function () { handleOpenModal("artGallery") },
+      "createTooltipFunc": hotspot,
+      "createTooltipArgs": "Art Gallery"
+    },
+    {//3
+      "pitch": 5,
+      "yaw": 123,
+      "cssClass": "custom-hotspot",
+      "clickHandlerFunc": function () { handleOpenModal("historicalAssets") },
+      "createTooltipFunc": hotspot,
+      "createTooltipArgs": "Historical Photographs"
+    },
+    { // 4
+      "pitch": 5,
+      "yaw": 179,
+      "cssClass": "custom-hotspot",
+      "clickHandlerFunc": function () { handleOpenModal("window") },
+      "createTooltipFunc": hotspot,
+      "createTooltipArgs": "Window"
+    },
+    { // 5
+      "pitch": 14,
+      "yaw": -73,
+      "cssClass": "custom-hotspot",
+      "clickHandlerFunc": function () { handleOpenModal("") }, // UPDATE
+      "createTooltipFunc": hotspot,
+      "createTooltipArgs": "Sculpture (name?)"
+    },
+    { // 5 (2)
+      "pitch": 14,
+      "yaw": -105,
+      "cssClass": "custom-hotspot",
+      "clickHandlerFunc": function () { handleOpenModal("") }, // UPDATE
+      "createTooltipFunc": hotspot,
+      "createTooltipArgs": "Sculpture (name?)"
+    },
+    { // 8
+      "pitch": -25,
+      "yaw": -40,
+      "cssClass": "custom-hotspot",
+      "clickHandlerFunc": function () { handleOpenModal("newspaper") },
+      "createTooltipFunc": hotspot,
+      "createTooltipArgs": "The Script News"
+    },
+    {//9
+      "pitch": -14,
+      "yaw": 70,
+      "cssClass": "custom-hotspot",
+      "clickHandlerFunc": function () { handleOpenModal("earthClub") },
+      "createTooltipFunc": hotspot,
+      "createTooltipArgs": "Earth Action Club"
+    },
+    // 11
+    {
+      "pitch": -4,
+      "yaw": 31,
+      "cssClass": "custom-hotspot",
+      "clickHandlerFunc": function () { handleOpenModal("coffeePot") },
+      "createTooltipFunc": hotspot,
+      "createTooltipArgs": "Coffee Pot"
+    },
+    //13
+    {
+      "pitch": -16,
+      "yaw": -89,
+      "cssClass": "custom-hotspot",
+      "clickHandlerFunc": function () { handleOpenModal("fireplace") },
+      "createTooltipFunc": hotspot,
+      "createTooltipArgs": "Fireplace"
+    },
+    { // Addition... The Quarry made more sense here.
+      "pitch": -3,
+      "yaw": -119,
+      "cssClass": "custom-hotspot",
+      "clickHandlerFunc": function () { handleOpenLeftPanel("libraryResources") },
+      "createTooltipFunc": hotspot,
+      "createTooltipArgs": "Library"
+    }
+  ],
+  // Panellum Config
+  "autoLoad": true,
+  "hotSpotDebug": true,
+  "maxPitch": 65,
+  "minPitch": -95,
+  "showZoomCtrl": false
 });
 
 /*begin global constants*/
@@ -111,6 +111,8 @@ var RIGHT_SIDEPANEL_CLOSE_ID = 'rightSidepanelClose';
 var MODAL_CLOSE_ID = 'modalClose';
 var CONTENT_CONTAINER_SHOW_CLASS = 'show-contentContainer';
 var CONTENT_SHOW_CLASS = 'show-content';
+var BIRD_IMAGES_CLASS = 'birdImages';
+var BIRD_AUDIO_CLASS = 'birdAudio';
 /*end global constants*/
 
 function handleOpenLeftPanel(hotspotContentId) {
@@ -161,6 +163,34 @@ function addContentContainerActions() {
   addCloseClickHandlers(MODAL_ID, MODAL_CLOSE_ID)
 }
 
+function pauseAudioPlayOnAllBirdSounds(clickedAudio) {
+  var birdAudio = document.getElementsByClassName(BIRD_AUDIO_CLASS);
+
+  Array.prototype.forEach.call(birdAudio, function (audio) {
+    if (audio !== clickedAudio) {
+      audio.pause();
+    }
+  });
+}
+
+function addAudioClickHandlers() {
+  birdImages = document.getElementsByClassName(BIRD_IMAGES_CLASS);
+
+  Array.prototype.forEach.call(birdImages, function (image) {
+    var imageIdentifier = image.getAttribute('data-imageIdentifier');
+    var correspondingAudioElement = document.querySelector('[data-audioIdentifier="' + imageIdentifier + '"]');
+
+    image.addEventListener('click', function () {
+      pauseAudioPlayOnAllBirdSounds(correspondingAudioElement);
+      if (correspondingAudioElement.paused) {
+        correspondingAudioElement.play();
+      } else {
+        correspondingAudioElement.pause();
+      }
+    }, false)
+  });
+}
+
 /*start pannellum setup code*/
 function hotspot(hotSpotDiv, args) {
   hotSpotDiv.classList.add('custom-tooltip');
@@ -176,6 +206,7 @@ function hotspot(hotSpotDiv, args) {
 
 /*start custom function calls*/
 addContentContainerActions();
+addAudioClickHandlers();
 /*end custom function calls*/
 
 
@@ -208,7 +239,7 @@ var dots = Array.from(dotsNav.children);
 
 // var slideWidth = slides[0].getBoundingClientRect().width;
 
-//this is a bit britle and depends on current CSS calculations
+//this is a bit brittle and depends on current CSS calculations
 var windowWidth = window.innerWidth;
 var modalWidth = windowWidth * .8;
 var slideWidth = modalWidth * .8;
