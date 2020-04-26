@@ -104,12 +104,15 @@ viewer = pannellum.viewer('panorama', {
   ],
   // Panellum Config
   "autoLoad": true,
+  "preview": "images/Other/EntranceSign.jpg",
   "hotSpotDebug": true,
   "maxPitch": 65,
   "minPitch": -95,
   "showZoomCtrl": false,
   "mouseZoom": false,
 });
+
+viewer.on('load', function () { handleOpenModal("welcomeMessage") });
 
 /*begin global constants*/
 var RIGHT_SIDEPANEL_ID = 'rightSidepanel';
