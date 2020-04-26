@@ -57,7 +57,7 @@ viewer = pannellum.viewer('panorama', {
       "cssClass": "custom-hotspot",
       "clickHandlerFunc": function () { handleOpenRightPanel("speaker") },
       "createTooltipFunc": hotspot,
-      "createTooltipArgs": ""
+      "createTooltipArgs": "Pleasant Audio"
     },
     { // 8
       "pitch": -25,
@@ -105,9 +105,11 @@ viewer = pannellum.viewer('panorama', {
   // Panellum Config
   "autoLoad": true,
   "preview": "images/Other/EntranceSign.jpg",
-  "hotSpotDebug": true,
+  "hotSpotDebug": false,
   "maxPitch": 65,
   "minPitch": -95,
+  "yaw": -90,
+  "pitch": 0,
   "showZoomCtrl": false,
   "mouseZoom": false,
 });
