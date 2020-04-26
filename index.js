@@ -99,7 +99,8 @@ viewer = pannellum.viewer('panorama', {
   "hotSpotDebug": true,
   "maxPitch": 65,
   "minPitch": -95,
-  "showZoomCtrl": false
+  "showZoomCtrl": false,
+  "mouseZoom": false,
 });
 
 /*begin global constants*/
