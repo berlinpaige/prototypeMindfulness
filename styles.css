@@ -1,17 +1,12 @@
 #panorama {
+  min-height: 100%;
   width: 100%;
-  height: 400px;
 }
 
-html {
+html, body {
   height: 100%;
-}
-
-body {
-    width: 100%;
-    min-height: 100%;
-    position: relative;
-    background-color: #074F82;
+  margin: 0;
+  background-color: #074F82;
 }
 
 .custom-hotspot {
@@ -74,13 +69,13 @@ iframe.embed {
 #leftSidepanelClose {
   padding: 15px;
   background-color: #BFCDD9;
-  display: inline-block;
+   position: absolute;
+  right: 0;
 }
 
 #modalClose {
   padding: 15px;
   background-color: #BFCDD9;
-  display: inline-block;
   position: absolute;
   right: 0;
 }

@@ -39,17 +39,17 @@ viewer = pannellum.viewer('panorama', {
       "pitch": 14,
       "yaw": -73,
       "cssClass": "custom-hotspot",
-      "clickHandlerFunc": function () { handleOpenModal("") }, // UPDATE
+      "clickHandlerFunc": function () { handleOpenRightPanel("benedict") },
       "createTooltipFunc": hotspot,
-      "createTooltipArgs": "Sculpture (name?)"
+      "createTooltipArgs": "St. Scholastica"
     },
     { // 5 (2)
       "pitch": 14,
       "yaw": -105,
       "cssClass": "custom-hotspot",
-      "clickHandlerFunc": function () { handleOpenModal("") }, // UPDATE
+      "clickHandlerFunc": function () { handleOpenRightPanel("scholastica") },
       "createTooltipFunc": hotspot,
-      "createTooltipArgs": "Sculpture (name?)"
+      "createTooltipArgs": "St. Benedict"
     },
     { // 8
       "pitch": -25,
