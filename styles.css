@@ -78,23 +78,44 @@ iframe.embed {
 }
 
 #rightSidepanelClose {
-  padding: 15px;
-  background-color: #BFCDD9;
-  display: inline-block;
+ left: 0;
 }
 
-#leftSidepanelClose {
-  padding: 15px;
-  background-color: #BFCDD9;
-   position: absolute;
+#leftSidepanelClose, #modalClose {
   right: 0;
 }
 
-#modalClose {
-  padding: 15px;
-  background-color: #BFCDD9;
+.close {
   position: absolute;
-  right: 0;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  background-color: #ffcb00;
+  border: #074F82 3px solid;
+}
+
+.close:before, .close:after {
+  position: absolute;
+  left: 25px;
+  content: ' ';
+  height: 50px;
+  width: 2px;
+  background-color: #074F82;
+  opacity: 0.6;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}
+
+.close:hover::before {
+  opacity: 1;
+}
+
+.close:hover::after {
+  opacity: 1;
 }
 
 .sidepanel {
@@ -107,6 +128,7 @@ iframe.embed {
 }
 
 #rightSidepanel {
+  padding-top: 45px;
   width: 0%;
   height: 100%;
   right: 0;
@@ -119,6 +141,7 @@ iframe.embed {
 }
 
 #leftSidepanel {
+  padding-top: 45px;
   width: 0%;
   height: 100%;
   left: 0;
@@ -131,17 +154,17 @@ iframe.embed {
 }
 
 #modal {
-    background-color: #074F82;
-    overflow-y: scroll;
-    position: absolute;
-    z-index: 1000;
-    width: 0%;
-    height: 80%;
-    left: 50%;
-    top: 50%;
-	text-color: white;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+  background-color: #074F82;
+  overflow-y: scroll;
+  position: absolute;
+  z-index: 1000;
+  width: 0%;
+  height: 80%;
+  left: 50%;
+  top: 50%;
+	color: white;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 #modal.show-contentContainer {
@@ -177,9 +200,16 @@ iframe.embed {
 
 }
 
+.birdImageWrapper {
+  display: inline-block;
+  width: 19.5%;
+}
+
 .birdImages {
-  width: 16%;
-  padding: 10px 10px 10px 10px;
+  width: 90%;
+  margin: 0 auto;
+  display: block;
+  padding: 10px;
 }
 
 .natureContainer {
@@ -339,6 +369,10 @@ iframe.embed {
   width: 100%;
   margin: auto;
   padding: 15px 15px 0px;
+}
+
+.birdAudio {
+  display: none;
 }
 
 /*Fireplace Styling, ES, 4/22/20*/

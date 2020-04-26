@@ -1,7 +1,7 @@
 // Create viewer
 viewer = pannellum.viewer('panorama', {
   "type": "equirectangular",
-  "panorama": "Equirectangular.png",
+  "panorama": "Equirectangular.jpg",
   "hotSpots": [
     { // 1
       "pitch": -12,
@@ -167,6 +167,7 @@ function addCloseClickHandlers(contentContainerId, contentContainerCloseId) {
   var contentContainerClose = document.getElementById(contentContainerCloseId);
 
   contentContainerClose.addEventListener('click', function () {
+    pauseAudioPlayOnAllBirdSounds();
     contentContainer.classList.remove(CONTENT_CONTAINER_SHOW_CLASS);
   }, false)
 }
@@ -180,8 +181,9 @@ function addContentContainerActions() {
 function pauseAudioPlayOnAllBirdSounds(clickedAudio) {
   var birdAudio = document.getElementsByClassName(BIRD_AUDIO_CLASS);
 
+
   Array.prototype.forEach.call(birdAudio, function (audio) {
-    if (audio !== clickedAudio) {
+    if (!clickedAudio || (clickedAudio && audio !== clickedAudio)) {
       audio.pause();
     }
   });
