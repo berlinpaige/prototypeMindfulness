@@ -81,6 +81,8 @@ iframe.embed {
   padding: 15px;
   background-color: #BFCDD9;
   display: inline-block;
+  position: absolute;
+  right: 0;
 }
 
 .sidepanel {
