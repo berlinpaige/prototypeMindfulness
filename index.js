@@ -51,6 +51,14 @@ viewer = pannellum.viewer('panorama', {
       "createTooltipFunc": hotspot,
       "createTooltipArgs": "St. Benedict"
     },
+    { // 6
+      "pitch": -5,
+      "yaw": 159,
+      "cssClass": "custom-hotspot",
+      "clickHandlerFunc": function () { handleOpenRightPanel("speaker") },
+      "createTooltipFunc": hotspot,
+      "createTooltipArgs": ""
+    },
     { // 8
       "pitch": -25,
       "yaw": -40,
