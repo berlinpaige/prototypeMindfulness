@@ -39,7 +39,7 @@ viewer = pannellum.viewer('panorama', {
       "pitch": 14,
       "yaw": -73,
       "cssClass": "custom-hotspot",
-      "clickHandlerFunc": function () { handleOpenRightPanel("benedict") },
+      "clickHandlerFunc": function () { handleOpenRightPanel("scholastica") },
       "createTooltipFunc": hotspot,
       "createTooltipArgs": "St. Scholastica"
     },
@@ -47,7 +47,7 @@ viewer = pannellum.viewer('panorama', {
       "pitch": 14,
       "yaw": -105,
       "cssClass": "custom-hotspot",
-      "clickHandlerFunc": function () { handleOpenRightPanel("scholastica") },
+      "clickHandlerFunc": function () { handleOpenLeftPanel("benedict") },
       "createTooltipFunc": hotspot,
       "createTooltipArgs": "St. Benedict"
     },
@@ -93,7 +93,17 @@ viewer = pannellum.viewer('panorama', {
       "createTooltipFunc": hotspot,
       "createTooltipArgs": "Fireplace"
     },
-    { // Addition... The Quarry made more sense here.
+    //14
+    {
+      "pitch": 5,
+      "yaw": -22,
+      "cssClass": "custom-hotspot",
+      "clickHandlerFunc": function () { handleOpenModal("bulletin") },
+      "createTooltipFunc": hotspot,
+      "createTooltipArgs": "Additional Resources"
+    },
+    // Addition... The Quarry made more sense here.
+    {
       "pitch": -3,
       "yaw": -119,
       "cssClass": "custom-hotspot",

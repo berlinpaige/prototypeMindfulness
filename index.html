@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 
 <html>
 
@@ -28,42 +29,54 @@
         </div>
       </div>
       <div id="newspaper" class="content">
-        <h1>This months's CSS Newspaper</h1>
+        <h1 class="historicalHeader">You discovered the school newspaper "The Script"!</h1>
+        <img alt="" src="images/Other/newspaper.jpg">
+        <a href="http://student.css.edu/earthaction/">Click here to Discover more!!!</a>
       </div>
+      <!--Coffee edit -->
       <div id="coffeePot" class="content">
         <hr class="historicalLine">
         <div class="historicalIntro">
           <h1 class="historicalHeader">Take a break with a coffee at St. Scholastica</h1>
+
+          <br>
+          <p>Enjoy a nice cup of coffee from the coffee pot</p>
+          <p>Don't like coffee? Here is a recipe for tea instead!</p><br />
         </div>
-        <br>
-        <p>Enjoy a nice cup of coffee from the coffee pot</p>
-        <p>Don't like coffee? Here is a recipe for tea instead!</p>
-        <p>Smooth Sweet Tea- Prep: 5min. Cook: 15min. Ready in: 3hr 20min.</p>
-        <p>Ingredients:</p>
-        <p>1 pinch baking soda</p>
-        <p>2 cups boiling water</p>
-        <p>6 tea bags</p>
-        <p>6 cups cool water</p>
-        <p>3/4 cup white sugar</p>
-        <p>Directions: Sprinkle a pinch of baking soda into a 64-ounce, heat-proof, glass pitcher.
-          Pour in boiling water, and add tea bags. Cover, and allow to steep for 15 minutes. Watch Now
-          Remove tea bags, and discard; stir in sugar until dissolved. Pour in cool water, then refrigerate until cold
-        </p>
+        <div class="coffee">
+          <h2>Smooth Sweet Tea</h2>
+          <p>Prep: 5min. Cook: 15min. Ready in: 3hr 20min.</p>
+          <p>Ingredients:</p>
+          <p>1 pinch baking soda</p>
+          <p>2 cups boiling water</p>
+          <p>6 tea bags</p>
+          <p>6 cups cool water</p>
+          <p>3/4 cup white sugar</p>
+          <p>Directions: Sprinkle a pinch of baking soda into a 64-ounce, heat-proof, glass pitcher.
+            Pour in boiling water, and add tea bags. Cover, and allow to steep for 15 minutes. Watch Now
+            Remove tea bags, and discard; stir in sugar until dissolved. Pour in cool water, then refrigerate until cold
+          </p><br />
+          <p>Click <a href="https://www.allrecipes.com/recipes/77/drinks/">here</a>
+            for more recipes</p>
+        </div>
         <img alt="" src="images/Other/pot.jpg">
       </div>
 
 
-      <!-- Nature Hotspot, ES, 4/17/20, updated 4/22/20 -->
+      <!-- Nature Hotspot, ES, 4/17/20, updated 4/22/20, updated 4/28/20 -->
       <div id="window" class="content">
-        <div class="windowIntro">
-          <h1>Nature Experience</h1>
-          <p>Explore the campus grounds.</p>
+        <hr class="historicalLine">
+        <div class="historicalIntro">
+          <h1 class="historicalHeader">You discovered a window.</h1>
+          <p>Take a look outside and explore the campus grounds.</p>
           <p>Immerse yourself in the sights and sounds of nature.</p>
-          <p>Click on a bird to listen to it sing:</p>
+          <p class="birdDirections">Click on a bird to listen to it sing:</p>
         </div>
+
         <div class="birdContainer">
           <!-- Bird images -->
           <div class="birdImageWrapper">
+
             <img data-imageIdentifier="birdChoir" class="birdImages" src="images/Nature/birdChoir.png" alt="">
           </div>
           <div class="birdImageWrapper">
@@ -80,7 +93,8 @@
           </div>
         </div>
         <div class="natureContainer">
-          <!-- nature images -->
+          <!-- nature and campus images -->
+          <img class="natureImages" src="images/Nature/campusSeven.jpg" alt="" />
           <img class="natureImages" src="images/Nature/natureOne.jpg" alt="" />
           <img class="natureImages" src="images/Nature/natureTwo.jpg" alt="" />
           <img class="natureImages" src="images/Nature/natureThree.jpg" alt="" />
@@ -118,7 +132,7 @@
       </div>
 
 
-      <!-- Art Gallery Hotspot, ES, 4/17/20, updated 4/22/20 -->
+      <!-- Art Gallery Hotspot, ES, 4/17/20, updated 4/22/20, updated 4/28/20 -->
       <div id="artGallery" class="content">
         <hr class="historicalLine">
         <div class="historicalIntro">
@@ -127,10 +141,10 @@
             Click on the arrows to look at some of the art displayed on campus.
           </p>
           <p>
-            Learn more about art at the college and the artists <a class="artLink"
-              href="https://libguides.css.edu/archives/art"> here. </a>
+            Learn more about art at the college and the artists <a class="artLink" href="https://libguides.css.edu/archives/art" target="_blank"> here. </a>
           </p>
         </div>
+        <br>
         <div class="carousel">
           <button id="buttonLeft" class="carousel_button">
             <img src="images/leftButton.png" alt="">
@@ -205,7 +219,7 @@
             </iframe>
           </div>
 
-          <a href="https://drive.google.com/open?id=1Wxob1NitYi8PsEz6DabOQmPzUviZYyJpX5E5MK8R_bs"></a>
+          <!--<a href="https://drive.google.com/open?id=1Wxob1NitYi8PsEz6DabOQmPzUviZYyJpX5E5MK8R_bs"></a>-->
         </div>
       </div>
 
@@ -222,7 +236,7 @@
             through college and their adult lives, preparing them for responsible living and meaningful work.
           </p>
         </div>
-
+        <br>
         <a href="http://student.css.edu/earthaction/">Join the Earth Action Club and get Involved!!</a>
 
       </div>
@@ -236,78 +250,156 @@
             Connect to the rich history of the college with this gallery of historical photographs.
           </p>
         </div>
+        <br>
         <div class="historicalImageContainer">
-          <img class="historicalImages" src="images/History/historicalGallery.jpg"
-            alt="A photo of St. Scholastica from the past" />
-          <img class="historicalImages" src="images/History/historicalTwo.jpg"
-            alt="A photo of St. Scholastica from the past" />
-          <img class="historicalImages" src="images/History/historicalThree.jpg"
-            alt="A photo of St. Scholastica from the past" />
-          <img class="historicalImages" src="images/History/historicalFour.jpg"
-            alt="A photo of St. Scholastica from the past" />
+          <img class="historicalImages" src="images/History/historicalGallery.jpg" alt="A photo of St. Scholastica from the past" />
+          <img class="historicalImages" src="images/History/historicalTwo.jpg" alt="A photo of St. Scholastica from the past" />
+          <img class="historicalImages" src="images/History/historicalThree.jpg" alt="A photo of St. Scholastica from the past" />
+          <img class="historicalImages" src="images/History/historicalFour.jpg" alt="A photo of St. Scholastica from the past" />
         </div>
       </div>
 
 
-      <!--Fireplace Assets, ES, 4/22/2020 -->
+      <!--Fireplace Assets, ES, 4/22/2020, updated 4/28/20 -->
       <div id="fireplace" class="content">
-        <div class="fireplaceIntro">
-          <h1>You found a fireplace.</h1>
+        <hr class="historicalLine">
+        <div class="historicalIntro">
+          <h1 class="historicalHeader">You found a fireplace.</h1>
+          <p>
+            Take some time and enjoy the cozy fire.
+          </p>
         </div>
-        <div class="content-centered">
-          <div class="embed-youtube">
-            <!-- Depak Chopra -->
-            <iframe class="embed" src="https://www.youtube.com/embed/R9x31p5u5ck">
-            </iframe>
+        <div class="fireplaceContainer">
+          <img class="fireplaceImage" src="images/fireplaceTile.jpg" alt="A photo of a fireplace." />
+          <div class="fireplaceVideoContainer">
+            <div class="content-centered">
+              <div class="embed-youtube">
+                <!-- Fireplace YouTube video -->
+                <iframe class="embed fireplaceFrame" src="https://www.youtube.com/embed/Lkz8s_WUQjU">
+                </iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+      </div>
+
+      <!--Bulletin Assets, ES, 5/01/20-->
+      <div id="bulletin" class="content">
+        <hr class="historicalLine">
+        <div class="historicalIntro">
+          <h1 class="historicalHeader">You discovered a bulletin.</h1>
+        </div>
+
+        <div class="bulletinContainer">
+          <div class="bulletinPin"></div>
+          <div class="bulletinHeader">
+            <hr class="bulletinLine">
+            <h2>The College of St. Scholastica:</h2>
+            <h4>A guide to additional resources.</h4>
+            <hr class="bulletinLine">
           </div>
           <br />
+          <p>
+            For more information about student activities, services, athletics, campus life and more connect to
+            <a class="blueLink" href="http://www.css.edu/" target="_blank">
+              The College of St. Scholastica website.
+            </a>
+          </p>
+            <br />
+          <div class="bulletinLinkContainer">
+            <h4>To connect to additional resources, click on the links below:</h4>
+            <a class="blueLink" href="http://www.css.edu/" target="_blank">
+              <p>The College of St. Scholastica Website</p>
+            </a>
+            <a class="blueLink" href="http://www.css.edu/about/news-center.html" target="_blank">
+              <p>CSS News Center</p>
+            </a>
+            <a class="blueLink" href="http://www.css.edu/wellu/student-wellu.html" target="_blank">
+              <p>Student WellU</p>
+            </a>
+            <a class="blueLink" href="http://www.css.edu/student-affairs/student-life/campus-rec.html" target="_blank">
+              <p>Campus Rec</p>
+            </a>
+            <a class="blueLink" href="http://www.css.edu/student-affairs/student-center-for-health-and-well-being/counseling.html" target="_blank">
+              <p>Counseling Services</p>
+            </a>
         </div>
       </div>
-
-      <!-- END put any content youd like to be in MODAL here -->
     </div>
 
+    <!-- END put any content youd like to be in MODAL here -->
+  </div>
 
 
-    <div id="leftSidepanel" class="sidepanel">
-      <div id="leftSidepanelClose" class="close"></div>
-      <!-- START put any content youd like to be in LEFT side panel here -->
 
-      <!-- Library Resources Hotspot, ES, 4/22/20 -->
-      <div id="libraryResources" class="content">
-        <div class="libraryIntro">
-          <h1>You found a collection of books.</h1>
-          <img class="libraryImage" src="images/Library/bookCollection.png" alt="books on shelf" />
-          <p>
-            Relax with a good read. You can find one <a class=libraryLink
-              href="https://libguides.css.edu/CSSLibrary">here</a>, through the college's library.
-          </p>
-          <p>
-            For more great content explore <a class=libraryLink href="https://quarry.css.edu/">the Quarry</a>, the
-            college's online digital repository.
-          </p>
-          <p>
-            Discover an expanding collection of photographs and publications dating from 1903 to the present!
-          </p>
-          <a class=libraryLink href="https://quarry.css.edu/">
-            <img class="libraryImage" src="images/Library/theQuarry.png" alt="The Quarry Logo" />
-          </a>
-        </div>
+  <div id="leftSidepanel" class="sidepanel">
+    <div id="leftSidepanelClose" class="close"></div>
+    <!-- START put any content youd like to be in LEFT side panel here -->
+
+    <!-- Library Resources Hotspot, ES, 4/22/20, updated 4/28/20 -->
+    <div id="libraryResources" class="content">
+      <div class="historicalIntro">
+        <hr class="historicalLine">
+        <h1 class="historicalHeader">You found a collection of books.</h1>
       </div>
-      <!-- END put any content youd like to be in LEFT side panel here -->
+      <img class="libraryImage" src="images/Library/bookCollection.png" alt="books on shelf" />
+      <div class="libraryBody">
+        <p>
+          Relax with a good read. You can find one <a class=libraryLink href="https://libguides.css.edu/CSSLibrary" target="_blank">here</a>, through the college's library.
+        </p>
+        <a class=libraryLink href="https://quarry.css.edu/" target="_blank">
+          <img class="libraryImage" src="images/Library/theQuarry.png" alt="The Quarry Logo" />
+        </a>
+        <p>
+          For more great content explore
+          <a class=libraryLink href="https://quarry.css.edu/" target="_blank">the Quarry</a>
+          , the college's online digital repository.
+          Discover an expanding collection of photographs and publications dating from 1903 to the present!
+        </p>
+        <br>
+        <br>
+      </div>
     </div>
 
-    <div id="rightSidepanel" class="sidepanel">
-      <div id="rightSidepanelClose" class="close"></div>
-      <!-- START put any content youd like to be in RIGHT side panel here -->
-      <div id="speaker" class="content">
-        <div class="historicalIntro">
-          <h1 class="historicalHeader">You found a speaker.</h1>
+    <div id="benedict" class="content">
+      <div class="historicalIntro">
+        <h1 class="historicalHeader">You found St. Benedict</h1>
+        <p>
           <p>
-            Listen to the works below and enjoy.
+            Values from our Benedictine Heritage
           </p>
-        </div>
+          Respect
+          Community
+          Love of Learning
+          Hospitality
+          Stewardship
+        </p>
       </div>
+      <br>
+      <div class="content-centered">
+        <div class="embed-youtube">
+          <!-- Psalm 23 -->
+          <iframe class="embed" src="https://www.youtube.com/embed/glAbi38tiVA">
+          </iframe>
+        </div>
+        <br>
+      </div>
+    </div>
+    <!-- END put any content youd like to be in LEFT side panel here -->
+  </div>
+
+  <div id="rightSidepanel" class="sidepanel">
+    <div id="rightSidepanelClose" class="close"></div>
+    <!-- START put any content youd like to be in RIGHT side panel here -->
+    <div id="speaker" class="content">
+      <div class="historicalIntro">
+        <h1 class="historicalHeader">You found a speaker.</h1>
+        <p>
+          Listen to the works below and enjoy.
+        </p>
+      </div>
+      <br>
       <div class="content-centered">
         <div class="embed-youtube">
           <!-- Relaxation -->
@@ -328,13 +420,27 @@
         </div>
       </div>
     </div>
+
+    <div id="scholastica" class="content">
+      <div class="historicalIntro">
+        <h1 class="historicalHeader">You have found St. Scholastica</h1>
+        <p>
+          Learn more about Monastic Life and Campus Minitries <a class=libraryLink href="http://www.duluthbenedictines.org/" target="_blank">here</a>. Let us act in such a manner that we become living proof of the goodness of God.
+        </p>
+      </div>
+      <br>
+      <div class="content-centered">
+        <div class="embed-youtube">
+          <!-- Psalm 23 -->
+          <iframe class="embed" src="https://www.youtube.com/embed/cwXxriXmjXI">
+          </iframe>
+        </div>
+        <br>
+      </div>
+    </div>
   </div>
-  <div id="benedict" class="content">
-    <p>Add content about St. Benedict</p>
   </div>
-  <div id="scholastica" class="content">
-    <p>Add content about St. Benedict</p>
-  </div>
+
   <!-- END put any content youd like to be in RIGHT side panel here -->
   </div>
   </div>
