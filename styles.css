@@ -1,4 +1,4 @@
-﻿#panorama {
+#panorama {
   min-height: 100%;
   width: 100%;
 }
@@ -30,6 +30,13 @@ a {
   width: 75px;
   height: 75px;
   animation: anim-glow 3s ease infinite;
+}
+
+.custom-hotspotghost {
+  border-radius: 50%;
+  border: 0px solid #ffcb00;
+  width: 75px;
+  height: 75px;
 }
 
 div.custom-tooltip span {
