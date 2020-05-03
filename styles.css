@@ -196,7 +196,12 @@ iframe.embed {
   width: 75%;
 }
 
-/*Nature Asset Styling, ES, 4/17/2020, updated 4/28/20*/
+.welcomeMessageImage {
+  width: 75%;
+  margin: 0 auto;
+  display: block;
+  max-width: 800px;
+}
 
 .birdDirections {
   color: #ffcb00;
@@ -247,7 +252,6 @@ iframe.embed {
   padding: 2% 2% 0px;
 }
 
-/*Art Gallery Styling, ES, 4/17/2020, updated 4/28/20*/
 #artGallery {
   color: white;
   height: 100%;
@@ -356,8 +360,6 @@ iframe.embed {
   }
 }
 
-
-/*Library & The Quarry Styling, ES, 4/22/20, updated 4/28/20*/
 .libraryBody {
   text-align: left;
   text-indent: 20px;
@@ -374,7 +376,6 @@ iframe.embed {
   color: #ffcb00;
 }
 
-/* Historical Photographs Styling, ES, 4/22/20, updated 4/28/20*/
 .historicalIntro {
   background-color: #06385c;
   text-align: center;
@@ -425,7 +426,6 @@ iframe.embed {
   display: block;
 }
 
-/*Fireplace Styling, ES, 4/22/20, updated 4/28/20*/
 .fireplaceContainer {
   position: relative;
   top: 0;
@@ -450,7 +450,6 @@ iframe.embed {
   border-image: url('') none;
 }
 
-/*Bulletin styling, ES, 4/22/20*/
 .bulletinContainer {
   background-color: white;
   color: black;

@@ -35,7 +35,7 @@ viewer = pannellum.viewer('panorama', {
       "createTooltipFunc": hotspot,
       "createTooltipArgs": "Window"
     },
-	{ // 7
+    { // 7
       "pitch": 0,
       "yaw": 92,
       "cssClass": "custom-hotspotghost",
@@ -43,7 +43,7 @@ viewer = pannellum.viewer('panorama', {
       "createTooltipFunc": hotspot,
       "createTooltipArgs": ""
     },
-	
+
     { // 5
       "pitch": 14,
       "yaw": -73,
@@ -111,7 +111,6 @@ viewer = pannellum.viewer('panorama', {
       "createTooltipFunc": hotspot,
       "createTooltipArgs": "Additional Resources"
     },
-    // Addition... The Quarry made more sense here.
     {
       "pitch": -3,
       "yaw": -119,
