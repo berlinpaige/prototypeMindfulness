@@ -217,6 +217,106 @@ function addAudioClickHandlers() {
   });
 }
 
+var track = document.querySelector('.carousel_track');
+var slides = Array.from(track.children);
+var nextButton = document.querySelector('#buttonRight');
+var prevButton = document.querySelector('#buttonLeft');
+var dotsNav = document.querySelector('.carousel_nav');
+var dots = Array.from(dotsNav.children);
+
+function addScreenResizeHandlers() {
+  window.addEventListener('resize', setCarouselSize);
+}
+
+function setCarouselSize() {
+  //this is a bit brittle and depends on current CSS calculations
+  var windowWidth = window.innerWidth;
+  var modalWidth = windowWidth * .8;
+  var slideWidth = modalWidth * .8;
+
+  //give the slide set the appropriate  height
+  track.style.height = slideWidth * .65 + 'px';
+
+  //Arrange the slides next to one another
+  var setSlidePosition = function (slide, index) {
+    slide.style.left = slideWidth * index + 'px';
+  }
+  slides.forEach(setSlidePosition);
+}
+
+function setUpCarousel() {
+  setCarouselSize();
+
+  var moveToSlide = function (track, currentSlide, targetSlide) {
+    track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
+    currentSlide.classList.remove('current-slide');
+    targetSlide.classList.add('current-slide');
+  }
+
+  var updateDots = function (currentDot, targetDot) {
+    currentDot.classList.remove('current-slide');
+    targetDot.classList.add('current-slide');
+  }
+
+  var hideShowArrows = function (slides, prevButton, nextButton, targetIndex) {
+    if (targetIndex === 0) {
+      prevButton.classList.add('is-hidden');
+      nextButton.classList.remove('is-hidden');
+    } else if (targetIndex === slides.length - 1) {
+      prevButton.classList.remove('is-hidden');
+      nextButton.classList.add('is-hidden');
+    } else {
+      prevButton.classList.remove('is-hidden');
+      nextButton.classList.remove('is-hidden');
+    }
+  }
+
+  //When I click right, move slides to the right
+  nextButton.addEventListener('click', e => {
+    var currentSlide = track.querySelector('.current-slide');
+    var nextSlide = currentSlide.nextElementSibling;
+    var currentDot = dotsNav.querySelector('.current-slide');
+    var nextDot = currentDot.nextElementSibling;
+    var nextIndex = slides.findIndex(slide => slide === nextSlide);
+
+    moveToSlide(track, currentSlide, nextSlide);
+    updateDots(currentDot, nextDot);
+    hideShowArrows(slides, prevButton, nextButton, nextIndex);
+
+  })
+
+  //When I click left, move slides to the left
+  prevButton.addEventListener('click', e => {
+    var currentSlide = track.querySelector('.current-slide');
+    var prevSlide = currentSlide.previousElementSibling;
+    var currentDot = dotsNav.querySelector('.current-slide');
+    var prevDot = currentDot.previousElementSibling;
+    var prevIndex = slides.findIndex(slide => slide === prevSlide);
+
+    moveToSlide(track, currentSlide, prevSlide);
+    updateDots(currentDot, prevDot);
+    hideShowArrows(slides, prevButton, nextButton, prevIndex);
+  })
+
+  //Whn I click nav indicators, move to that slides
+  dotsNav.addEventListener('click', e => {
+    // what indicator was clicked on?
+    var targetDot = e.target.closest('button');
+
+    if (!targetDot) return;
+
+    var currentSlide = track.querySelector('.current-slide');
+    var currentDot = dotsNav.querySelector('.current-slide');
+    var targetIndex = dots.findIndex(dot => dot === targetDot);
+    var targetSlide = slides[targetIndex];
+
+    moveToSlide(track, currentSlide, targetSlide);
+    updateDots(currentDot, targetDot);
+    hideShowArrows(slides, prevButton, nextButton, targetIndex);
+
+  })
+}
+
 /*start pannellum setup code*/
 function hotspot(hotSpotDiv, args) {
   hotSpotDiv.classList.add('custom-tooltip');
@@ -233,117 +333,7 @@ function hotspot(hotSpotDiv, args) {
 /*start custom function calls*/
 addContentContainerActions();
 addAudioClickHandlers();
+addScreenResizeHandlers();
+setUpCarousel();
 /*end custom function calls*/
 
-
-//ES, 4-17-20, I tried to create a carousel
-//but I couldn't quite get it to work.
-//I think the issue is in determining the width of the slide in the slides array.
-//When I tried "console.log(slideWidth);" to check if it was working, it returned 0.
-//Maybe this is because it's in a modal window.
-//I followed a tutorial, I wouldn't know how to do this otherwise.
-//I spent a good deal of time on it so I wanted to put it here, but feel free to change this so we have something that works!
-
-//ES, 4-17-20, I tried to create a carousel
-//but I couldn't quite get it to work.
-//I think the issue is in determining the width of the slide in the slides array.
-//When I tried "console.log(slideWidth);" to check if it was working, it returned 0.
-//Maybe this is because it's in a modal window.
-//I followed a tutorial, I wouldn't know how to do this otherwise.
-//I spent a good deal of time on it so I wanted to put it here, but feel free to change this so we have something that works!
-
-/*start art gallery code*/
-
-var track = document.querySelector('.carousel_track');
-var slides = Array.from(track.children);
-var nextButton = document.querySelector('#buttonRight');
-var prevButton = document.querySelector('#buttonLeft');
-var dotsNav = document.querySelector('.carousel_nav');
-var dots = Array.from(dotsNav.children);
-
-
-
-// var slideWidth = slides[0].getBoundingClientRect().width;
-
-//this is a bit brittle and depends on current CSS calculations
-var windowWidth = window.innerWidth;
-var modalWidth = windowWidth * .8;
-var slideWidth = modalWidth * .8;
-
-
-//Arrange the slides next to one another
-var setSlidePosition = function (slide, index) {
-  slide.style.left = slideWidth * index + 'px';
-}
-slides.forEach(setSlidePosition);
-
-var moveToSlide = function (track, currentSlide, targetSlide) {
-  track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
-  currentSlide.classList.remove('current-slide');
-  targetSlide.classList.add('current-slide');
-}
-
-var updateDots = function (currentDot, targetDot) {
-  currentDot.classList.remove('current-slide');
-  targetDot.classList.add('current-slide');
-}
-
-var hideShowArrows = function (slides, prevButton, nextButton, targetIndex) {
-  if (targetIndex === 0) {
-    prevButton.classList.add('is-hidden');
-    nextButton.classList.remove('is-hidden');
-  } else if (targetIndex === slides.length - 1) {
-    prevButton.classList.remove('is-hidden');
-    nextButton.classList.add('is-hidden');
-  } else {
-    prevButton.classList.remove('is-hidden');
-    nextButton.classList.remove('is-hidden');
-  }
-}
-
-//When I click right, move slides to the right
-nextButton.addEventListener('click', e => {
-  var currentSlide = track.querySelector('.current-slide');
-  var nextSlide = currentSlide.nextElementSibling;
-  var currentDot = dotsNav.querySelector('.current-slide');
-  var nextDot = currentDot.nextElementSibling;
-  var nextIndex = slides.findIndex(slide => slide === nextSlide);
-
-  moveToSlide(track, currentSlide, nextSlide);
-  updateDots(currentDot, nextDot);
-  hideShowArrows(slides, prevButton, nextButton, nextIndex);
-
-})
-
-//When I click left, move slides to the left
-prevButton.addEventListener('click', e => {
-  var currentSlide = track.querySelector('.current-slide');
-  var prevSlide = currentSlide.previousElementSibling;
-  var currentDot = dotsNav.querySelector('.current-slide');
-  var prevDot = currentDot.previousElementSibling;
-  var prevIndex = slides.findIndex(slide => slide === prevSlide);
-
-  moveToSlide(track, currentSlide, prevSlide);
-  updateDots(currentDot, prevDot);
-  hideShowArrows(slides, prevButton, nextButton, prevIndex);
-})
-
-//Whn I click nav indicators, move to that slides
-dotsNav.addEventListener('click', e => {
-  // what indicator was clicked on?
-  var targetDot = e.target.closest('button');
-
-  if (!targetDot) return;
-
-  var currentSlide = track.querySelector('.current-slide');
-  var currentDot = dotsNav.querySelector('.current-slide');
-  var targetIndex = dots.findIndex(dot => dot === targetDot);
-  var targetSlide = slides[targetIndex];
-
-  moveToSlide(track, currentSlide, targetSlide);
-  updateDots(currentDot, targetDot);
-  hideShowArrows(slides, prevButton, nextButton, targetIndex);
-
-})
-
-/*end art gallery code*/
