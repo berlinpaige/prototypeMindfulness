@@ -426,6 +426,11 @@ iframe.embed {
   display: block;
 }
 
+.earthActionInfo {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .fireplaceContainer {
   position: relative;
   top: 0;
